@@ -39,19 +39,26 @@ function App() {
       </div>
       <div className='formWrapper'>
         {modes.map((mode, index) => {
-          if(index == activeTab){
-          return(
-            <div className='modeForm'>
-              hi
-              {mode.unitInputs.map((unitInput, index) => {
-                return (
-                  <div key={index} className='modeForm'>
-                    {unitInput.label}
-                  </div>
-                );
-              })}
-            </div>
-          )}
+          if (index == activeTab) {
+            return (
+              <div className='modeForm'>
+           
+                      {mode.unitInputs.map((unitInput, index) => {
+                        return (
+                         
+                            <div key={index} className='modeFormUnit'>
+                              <label for={unitInput.label}>
+                                {unitInput.label}
+                              </label>
+                              <input name={unitInput.label} />
+                            </div>
+                       
+                        );
+                      })}
+            
+              </div>
+            );
+          }
         })}
       </div>
     </div>
