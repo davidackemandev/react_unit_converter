@@ -1,0 +1,180 @@
+{
+  "modes": [
+    {
+      "name": "Force",
+      "unitInputs": [
+        { "label": "lbF", "factor": "1" },
+        { "label": "ozF", "factor": "16" },
+        { "label": "kgF", "factor": "0.45359" },
+        { "label": "dyne", "factor": "444800" },
+        { "label": "N", "factor": "4.448" },
+        { "label": "ton", "factor": "0.0005" },
+        { "label": "gF", "factor": "453.59" },
+        { "label": "ton (metric)", "factor": "0.000453597" }
+      ]
+    },
+    {
+      "name": "Torque",
+      "unitInputs": [
+        { "label": "lbFft", "factor": "1" },
+        { "label": "gFcm", "factor": "13825" },
+        { "label": "kgFm", "factor": "0.1383" },
+        { "label": "Nm", "factor": "1.356" },
+        { "label": "ozFin", "factor": "192" },
+        { "label": "lbFin", "factor": "12" }
+      ]
+    },
+    {
+      "name": "Angle",
+      "unitInputs": [
+        { "label": "degree", "factor": "1" },
+        { "label": "radian", "factor": "0.01745329252" }
+      ]
+    },
+    {
+        "name": "Area",
+        "unitInputs": [
+          { "label": "m<sup>2</sup>", "factor": "" },
+          { "label": "in<sup>2</sup>", "factor": "1550" },
+          { "label": "mile<sup>2</sup>", "factor": "0.0000003861" },
+          { "label": "cm<sup>2</sup>", "factor": "10000" },
+          { "label": "hectare", "factor": "0.0001" },
+          { "label": "km<sup>2</sup>", "factor": "0.000001" },
+          { "label": "ft<sup>2</sup>", "factor": "10.764" },
+          { "label": "yard<sup>2</sup>", "factor": "1.196" },
+          { "label": "acre", "factor": "0.0002471" }
+        ]
+      },
+      {
+        "name": "Energy",
+        "unitInputs": [
+          { "label": "kW/hr", "factor": "1" },
+          { "label": "W/hr", "factor": "1000" },
+          { "label": "btu", "factor": "3409.5" },
+          { "label": "calorie, g", "factor": "859184" },
+          { "label": "joule (abs)", "factor": "3600000" },
+          { "label": "hp/hr", "factor": "1.341" }
+        ]
+      },
+      {
+        "name": "Flow (mass)",
+        "unitInputs": [
+          { "label": "lb/min", "factor": "1" },
+          { "label": "lb/hr", "factor": "60" },
+          { "label": "lb/sec", "factor": "0.016666667" },
+          { "label": "oz/min", "factor": "16" },
+          { "label": "kg/hr", "factor": "27.2154" },
+          { "label": "kg/sec", "factor": "0.0075599" },
+          { "label": "g/min", "factor": "7.5599" }
+        ]
+      },
+      {
+        "name": "Flow (vol)",
+        "unitInputs": [
+          { "label": "cfm", "factor": "1" },
+          { "label": "in<sup>3</sup>/s", "factor": "28.8" },
+          { "label": "ft<sup>3</sup>/s", "factor": "0.0167" },
+          { "label": "gpm", "factor": "7.4805" },
+          { "label": "liter/min", "factor": "28.317" },
+          { "label": "m<sup>3</sup>/s", "factor": "0.0004719" },
+          { "label": "cm<sup>3</sup>/s", "factor": "471.95" },
+          { "label": "m<sup>3</sup>/hr", "factor": "1.699" }
+        ]
+      },
+      {
+        "name": "Length",
+        "unitInputs": [
+          { "label": "m", "factor": "1" },
+          { "label": "km", "factor": "0.001" },
+          { "label": "cm", "factor": "100" },
+          { "label": "mm", "factor": "1000" },
+          { "label": "mile", "factor": "0.0006214" },
+          { "label": "yard", "factor": "1.0936" },
+          { "label": "in", "factor": "39.37" },
+          { "label": "ft", "factor": "3.2808" }
+        ]
+      },
+      {
+        "name": "Magnetics",
+        "unitInputs": [
+          { "label": "gauss", "factor": "1" },
+          { "label": "tesla", "factor": "0.0001" },
+          { "label": "gamma", "factor": "1000000" },
+          { "label": "A/m", "factor": "79.6" }
+        ]
+      },
+      {
+        "name": "Power",
+        "unitInputs": [
+          { "label": "Watt", "factor": "1" },
+          { "label": "hp", "factor": "0.00134" },
+          { "label": "hp (metric)", "factor": "0.0013596" },
+          { "label": "btu/s", "factor": "0.000948" },
+          { "label": "kW", "factor": "0.001" },
+          { "label": "cal/min", "factor": "0.01434" }
+        ]
+      },
+      {
+        "name": "Pressure",
+        "unitInputs": [
+          { "label": "psig", "factor": "1" },
+          { "label": "ftH20", "factor": "2.306" },
+          { "label": "inH20", "factor": "27.679" },
+          { "label": "atm", "factor": "0.068046" },
+          { "label": "bar", "factor": "0.068948" },
+          { "label": "kPa", "factor": "6.8947" },
+          { "label": "mm Hg", "factor": "51.715" }
+        ]
+      },
+      {
+        "name": "Speed",
+        "unitInputs": [
+          { "label": "km/hr", "factor": "1" },
+          { "label": "m/s", "factor": "0.27778" },
+          { "label": "km/s", "factor": "0.0002778" },
+          { "label": "m/min", "factor": "16.67" },
+          { "label": "mi/s", "factor": "0.0001726" },
+          { "label": "mi/hr", "factor": "0.6214" },
+          { "label": "ft/s", "factor": "0.9113" },
+          { "label": "knot", "factor": "0.5396" }
+        ]
+      },
+      {
+        "name": "Temperature",
+        "unitInputs": [
+          { "label": "Fahrenheit", "factor": "1" },
+          { "label": "Celsius", "factor": "1" },
+          { "label": "Kelvin", "factor": "1" }
+        ]
+      },
+      {
+        "name": "Time",
+        "unitInputs": [
+          { "label": "day", "factor": "1" },
+          { "label": "week", "factor": "0.1428571" },
+          { "label": "month", "factor": "0.0328548" },
+          { "label": "year", "factor": "0.0027379" },
+          { "label": "sec", "factor": "86400" },
+          { "label": "min", "factor": "1440" },
+          { "label": "hr", "factor": "24" }
+        ]
+      },
+      {
+        "name": "Volume",
+        "unitInputs": [
+          { "label": "gallon", "factor": "1" },
+          { "label": "ft<sup>3</sup>", "factor": "0.003785" },
+          { "label": "m<sup>3</sup>", "factor": "0.13368" },
+          { "label": "yard<sup>3</sup>", "factor": "0.004951" },
+          { "label": "mm<sup>3</sup>", "factor": "3785000" },
+          { "label": "cm<sup>3</sup>", "factor": "3785" },
+          { "label": "quart", "factor": "4" },
+          { "label": "L", "factor": "3.785" },
+          { "label": "pint", "factor": "8" },
+          { "label": "in<sup>3</sup>", "factor": "231" },
+          { "label": "mL", "factor": "3785" },
+          { "label": "fl oz", "factor": "128" }
+        ]
+      }
+  ]
+}
