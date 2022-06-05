@@ -25,3 +25,6 @@
 .modeFormUnit input{
   width: 100%;
 }
+.modeFormUnit label{
+  margin-bottom: 6px;
+}
