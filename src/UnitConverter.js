@@ -10,6 +10,7 @@ function App() {
   useEffect(() => {
     if (!activeTab) {
       localStorage.setItem('activeTab', 0);
+      setActiveTab(0);
     }
   });
   function onClickTabHeader(e) {
@@ -23,11 +24,8 @@ function App() {
     const value = e.target.value;
     if(formula){
       const dataFunction = new Function('num', `return ${formula.from}`)
-      if(parseFloat(dataFunction(value)) == parseFloat(baseValue)){
-        return;
-      }else{
       setBaseValue(dataFunction(value));
-      }
+      
     } else {
     setBaseValue(value / factor);}
   }
