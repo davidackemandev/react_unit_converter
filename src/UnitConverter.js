@@ -105,6 +105,11 @@ function App() {
         })}
       </div>
       </div>
+      <div className="bottomBar">
+        <a href="https://github.com/dvacreative/react_unit_converter" target="_blank">
+        <i class="ri-github-fill ri-xl"></i>
+      </a>
+      </div>
     </div>
   );
 }

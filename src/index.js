@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import UnitConverter from './UnitConverter';
 import reportWebVitals from './reportWebVitals';
+import 'remixicon/fonts/remixicon.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

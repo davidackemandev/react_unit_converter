@@ -26,10 +26,22 @@ html, body{
   background: var(--gray-300);
 }
 .container{
+  overflow: auto;
   width:800px;
   height: 100%;
   background: var(--gray-100);
   border-radius: 8px;
+}
+.bottomBar{
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width:100%;
+  padding: 10px 0px;
+}
+.bottomBar > a {
+  text-decoration: none;
+  color: #0A95FF;
 }
 .modeSelectWrap{
   padding: 20px;
