@@ -13,8 +13,8 @@ function App() {
       setActiveTab(0);
     }
   });
-  function onClickTabHeader(e) {
-    const index = e.target.dataset.index;
+  function onSelectMode(e) {
+    const index = e.target.value;
     setBaseValue('');
     setActiveTab(index);
     localStorage.setItem('activeTab', index);
@@ -22,18 +22,20 @@ function App() {
 
   function onUnitInputChange(e, factor, formula) {
     const value = e.target.value;
-    if(formula){
-      const dataFunction = new Function('num', `return ${formula.from}`)
+    if (formula) {
+      const dataFunction = new Function('num', `return ${formula.from}`);
       setBaseValue(dataFunction(value));
-      
     } else {
-    setBaseValue(value / factor);}
+      setBaseValue(value / factor);
+    }
   }
 
   function calcInputValue(factor, formula) {
-    if(!baseValue){return '';}
-    if(formula){
-      const dataFunction = new Function('num', `return ${formula.to}`)
+    if (!baseValue) {
+      return '';
+    }
+    if (formula) {
+      const dataFunction = new Function('num', `return ${formula.to}`);
       return formatvalue(dataFunction(baseValue));
     }
     const value = formatvalue(baseValue * factor);
@@ -41,30 +43,29 @@ function App() {
   }
 
   function formatvalue(num) {
-    if(isNaN(num)){
+    if (isNaN(num)) {
       return '';
     }
     const value = Math.round(num * 1000) / 1000;
     return parseFloat(value);
   }
   return (
-    <div className='App'>
-      <div className='tabBar'>
-        {modes.map((mode, index) => {
-          return (
-            <div key={index}>
-              <div
-                className={`tabHeader ${index == activeTab ? 'active' : ''}`}
-                data-index={index}
-                onClick={(e) => {
-                  onClickTabHeader(e);
-                }}
-              >
-                {mode.name}
-              </div>
-            </div>
-          );
-        })}
+    <div className='outerWrap'>
+      <div className='container'>
+      <div className='modeSelectWrap'>
+        <label htmlFor="modeSelect">Mode</label>
+        <select
+          id="modeSelect"
+          className='modeSelect'
+          value={activeTab}
+          onChange={(e) => {
+            onSelectMode(e);
+          }}
+        >
+          {modes.map((mode, index) => {
+            return <option value={index} key={index}>{mode.name}</option>;
+          })}
+        </select>
       </div>
       <div className='formWrapper'>
         {modes.map((mode, index) => {
@@ -79,13 +80,20 @@ function App() {
                         dangerouslySetInnerHTML={{ __html: unitInput.label }}
                       />
                       <input
-                      type="number"
-                      step="any"
+                        type='number'
+                        step='any'
                         name={unitInput.label}
-                        value={calcInputValue(unitInput.factor, unitInput.formula)}
+                        value={calcInputValue(
+                          unitInput.factor,
+                          unitInput.formula
+                        )}
                         data-factor={unitInput.factor}
                         onChange={(e) => {
-                          onUnitInputChange(e, unitInput.factor, unitInput.formula);
+                          onUnitInputChange(
+                            e,
+                            unitInput.factor,
+                            unitInput.formula
+                          );
                         }}
                       />
                     </div>
@@ -95,6 +103,7 @@ function App() {
             );
           }
         })}
+      </div>
       </div>
     </div>
   );
