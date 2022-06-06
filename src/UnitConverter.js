@@ -53,7 +53,7 @@ function App() {
     <div className='outerWrap'>
       <div className='container'>
       <div className='modeSelectWrap'>
-        <label htmlFor="modeSelect">Mode</label>
+        <label htmlFor="modeSelect">Mode:</label>
         <select
           id="modeSelect"
           className='modeSelect'
