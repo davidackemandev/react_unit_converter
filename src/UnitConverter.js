@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import data from './unitconverterdata.json';
 import './unitConverter.css';
@@ -7,12 +7,15 @@ function App() {
   const [baseValue, setBaseValue] = useState('');
   const [activeTab, setActiveTab] = useState(localStorage.getItem('activeTab'));
   const modes = data.modes;
+  const activeMode = modes.filter((mode, index)=> parseInt(index) === parseInt(activeTab))[0];
+  
   useEffect(() => {
     if (!activeTab) {
       localStorage.setItem('activeTab', 0);
       setActiveTab(0);
     }
-  });
+  },[activeTab]);
+
   function onSelectMode(e) {
     const index = e.target.value;
     setBaseValue('');
@@ -49,6 +52,7 @@ function App() {
     const value = Math.round(num * 1000) / 1000;
     return parseFloat(value);
   }
+
   return (
     <div className='outerWrap'>
       <div className='container'>
@@ -68,11 +72,8 @@ function App() {
         </select>
       </div>
       <div className='formWrapper'>
-        {modes.map((mode, index) => {
-          if (index == activeTab) {
-            return (
-              <div className='modeForm' key={index}>
-                {mode.unitInputs.map((unitInput, index) => {
+              <div className='modeForm'>
+                {activeMode.unitInputs.map((unitInput, index) => {
                   return (
                     <div key={index} className='modeFormUnit'>
                       <label
@@ -100,14 +101,11 @@ function App() {
                   );
                 })}
               </div>
-            );
-          }
-        })}
       </div>
       </div>
       <div className="bottomBar">
-        <a href="https://github.com/dvacreative/react_unit_converter" target="_blank">
-        <i class="ri-github-fill ri-xl"></i>
+        <a href="https://github.com/dvacreative/react_unit_converter" target="_blank" rel="noreferrer">
+        <i className="ri-github-fill ri-xl"></i>
       </a>
       </div>
     </div>
