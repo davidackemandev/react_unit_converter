@@ -12,35 +12,54 @@ function App() {
       localStorage.setItem('activeTab', 0);
     }
   });
-  function clickTabHeader(e) {
+  function onClickTabHeader(e) {
     const index = e.target.dataset.index;
     setBaseValue('');
     setActiveTab(index);
     localStorage.setItem('activeTab', index);
   }
-  function onUnitInputChange(e, factor) {
+
+  function onUnitInputChange(e, factor, formula) {
     const value = e.target.value;
-    setBaseValue(value / factor);
+    if(formula){
+      const dataFunction = new Function('num', `return ${formula.from}`)
+      if(parseFloat(dataFunction(value)) == parseFloat(baseValue)){
+        return;
+      }else{
+      setBaseValue(dataFunction(value));
+      }
+    } else {
+    setBaseValue(value / factor);}
   }
-  function calcInputValue(factor){
-    if(!baseValue){
+
+  function calcInputValue(factor, formula) {
+    if(!baseValue){return '';}
+    if(formula){
+      const dataFunction = new Function('num', `return ${formula.to}`)
+      return formatvalue(dataFunction(baseValue));
+    }
+    const value = formatvalue(baseValue * factor);
+    return value;
+  }
+
+  function formatvalue(num) {
+    if(isNaN(num)){
       return '';
     }
-    const value = Math.round((baseValue * factor + Number.EPSILON) * 100) / 100
-    return value;
+    const value = Math.round(num * 1000) / 1000;
+    return parseFloat(value);
   }
   return (
     <div className='App'>
       <div className='tabBar'>
         {modes.map((mode, index) => {
-          console.log(index);
           return (
             <div key={index}>
               <div
                 className={`tabHeader ${index == activeTab ? 'active' : ''}`}
                 data-index={index}
                 onClick={(e) => {
-                  clickTabHeader(e);
+                  onClickTabHeader(e);
                 }}
               >
                 {mode.name}
@@ -62,11 +81,13 @@ function App() {
                         dangerouslySetInnerHTML={{ __html: unitInput.label }}
                       />
                       <input
+                      type="number"
+                      step="any"
                         name={unitInput.label}
-                        value={calcInputValue(unitInput.factor)}
+                        value={calcInputValue(unitInput.factor, unitInput.formula)}
                         data-factor={unitInput.factor}
                         onChange={(e) => {
-                          onUnitInputChange(e, unitInput.factor);
+                          onUnitInputChange(e, unitInput.factor, unitInput.formula);
                         }}
                       />
                     </div>
