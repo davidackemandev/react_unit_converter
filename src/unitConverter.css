@@ -41,7 +41,7 @@ html, body{
 }
 .bottomBar > a {
   text-decoration: none;
-  color: #0A95FF;
+  color: var(--black)
 }
 .modeSelectWrap{
   padding: 20px;
