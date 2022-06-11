@@ -4,17 +4,11 @@ import data from './unitconverterdata.json';
 import './unitConverter.css';
 
 function App() {
+  const localStorageActiveTab = localStorage.getItem('activeTab')
   const [baseValue, setBaseValue] = useState('');
-  const [activeTab, setActiveTab] = useState(localStorage.getItem('activeTab'));
+  const [activeTab, setActiveTab] = useState(localStorageActiveTab ? localStorageActiveTab : 0);
   const modes = data.modes;
   const activeMode = modes.filter((mode, index)=> parseInt(index) === parseInt(activeTab))[0];
-  
-  useEffect(() => {
-    if (!activeTab) {
-      localStorage.setItem('activeTab', 0);
-      setActiveTab(0);
-    }
-  },[activeTab]);
 
   function onSelectMode(e) {
     const index = e.target.value;
